@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -15,22 +16,27 @@ public class GameManager : MonoBehaviour
 
     public void GoToLevel(int level)
     {
-        if (level == 1)
-        {
-            _level1.SetActive(true);
-            _level2.SetActive(false);
-            _level3.SetActive(false);
-        } else if (level == 2)
-        {
-            _level1.SetActive(false);
-            _level2.SetActive(true);
-            _level3.SetActive(false);
-        } else if (level == 3)
-        {
-            _level1.SetActive(false);
-            _level2.SetActive(false);
-            _level3.SetActive(true);
-        }
+        DOVirtual.DelayedCall(1.5f, () => {
+            if (level == 1)
+            {
+                _level1.SetActive(true);
+                _level2.SetActive(false);
+                _level3.SetActive(false);
+            }
+            else if (level == 2)
+            {
+                _level1.SetActive(false);
+                _level2.SetActive(true);
+                _level3.SetActive(false);
+            }
+            else if (level == 3)
+            {
+                _level1.SetActive(false);
+                _level2.SetActive(false);
+                _level3.SetActive(true);
+            }
+        });
 
+        
     }
 }
