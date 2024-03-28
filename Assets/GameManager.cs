@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject _level3;
     [SerializeField] private GameObject _restartPanel;
 
+    [SerializeField] private ParticleSystem _particleSystem1, _particleSystem2, _particleSystem3;
+
     void Start()
     {
         _restartPanel.SetActive(false);
@@ -51,5 +53,19 @@ public class GameManager : MonoBehaviour
             _restartPanel.SetActive(true);
         });
         
+    }
+
+    public void EmitParticleLevel(int level)
+    {
+        if (level == 1)
+        {
+            _particleSystem1.Play();
+        } else if (level == 2)
+        {
+            _particleSystem2.Play();
+        } else if (level == 3)
+        {
+            _particleSystem3.Play();
+        }
     }
 }
