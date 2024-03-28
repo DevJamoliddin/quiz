@@ -9,7 +9,10 @@ public class BounceEff : MonoBehaviour
 
     void Start()
     {
-        BounceObj();
+        if (!needToBounce)
+        {
+            needToBounce = true;
+        }
     }
 
     private void Update()

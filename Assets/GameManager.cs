@@ -18,16 +18,17 @@ public class GameManager : MonoBehaviour
 
     public void GoToLevel(int level)
     {
+        if (level == 1)
+        {
+            BounceEff.needToBounce = true;
+            _restartPanel.SetActive(false);
+            _level1.SetActive(true);
+            _level2.SetActive(false);
+            _level3.SetActive(false);
+        }
+
         DOVirtual.DelayedCall(1.5f, () => {
-            if (level == 1)
-            {
-                BounceEff.needToBounce = true;
-                _restartPanel.SetActive(false);
-                _level1.SetActive(true);
-                _level2.SetActive(false);
-                _level3.SetActive(false);
-            }
-            else if (level == 2)
+            if (level == 2)
             {
                 BounceEff.needToBounce = true;
                 _level1.SetActive(false);
